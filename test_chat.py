@@ -5,6 +5,8 @@ from typing import List, Optional
 
 import fire
 import os
+from json import loads
+from tqdm import tqdm
 
 from llama import Llama, Dialog
 
@@ -39,6 +41,11 @@ def main(
         max_seq_len=max_seq_len,
         max_batch_size=max_batch_size,
     )
+    sysprompt = {"role" : "system", "content" : 
+"""
+You are a database expert who can make general predictions for missing column values in database tables, and the predicted column names are within the required candidate set. All output must be in valid JSON. Don't add explanation beyond the JSON.
+Always answer as helpfully as possible, while being safe.  Your answers should not include any harmful, unethical, racist, sexist, toxic, dangerous, or illegal content. Please ensure that your responses are socially unbiased and positive in nature. If a question does not make any sense, or is not factually coherent, explain why instead of answering something not correct. If you don't know the answer to a question, please don't share false information.
+"""}
 
     outputs = {"role" : "system", "content" : """
     Column Names are limited to the following:
@@ -52,7 +59,7 @@ def main(
     requirement, director, sales, continent, organisation
     Do not use any column names aside from these.
 
-    Answer like [col1,col2,...]
+    Output must be in valid JSON like the following example {"colnames" : ["col1", "col2"], "explanation" : [in_less_than_ten_words]}
     """}
 
     #dialogs: List[Dialog] = [
@@ -71,8 +78,8 @@ def main(
     starter = outputs["content"] + "Given the following relational table:\n"
     real_cols = []
     pred_cols = []
-    i = 0
-    for filename in filenames[0:10]:
+    #i = 0
+    for filename in tqdm(filenames[0:100]):
         dialogs: List[Dialog] = []
         with open(tabledir + filename) as f:
             linelist = f.readlines()
@@ -83,16 +90,16 @@ def main(
             real_cols.append(colnames)
             #print(f'Column Names: {colnames}')
             input = starter
-            listcol = []
-            for colnum in range(len(colnames)):
-                listcol.append(f'col{colnum+1}')
-            input += ';'.join(listcol) + '\n'
+            #listcol = []
+            #for colnum in range(len(colnames)):
+            #    listcol.append(f'col{colnum+1}')
+            #input += ';'.join(listcol) + '\n'
             lines = ''.join(linelist[1:])#.replace(',',';')
-            input += lines + f'Guess the column names for the whole table. There are only {len(colnames)} columns in the table.'
-            dialogs.append([{"role":"user", "content":input}]) #be sure to add outputs
-        i += 1
-        if i > max_batch_size - 1:
-            break
+            input += lines + f'Guess the column names for the whole table. There are only {len(colnames)} columns in the table. It is possible for multiple columns to have the same name'
+            dialogs.append([sysprompt, {"role":"user", "content":input}]) #be sure to add outputs
+        #i += 1
+        #if i > max_batch_size - 1:
+        #    break
         #break
 
         results = generator.chat_completion(
@@ -103,25 +110,25 @@ def main(
         )
 
         for dialog, result in zip(dialogs, results):
-            for msg in dialog:
-                print(f"{msg['role'].capitalize()}: {msg['content']}\n")
-            print(
-                f"> {result['generation']['role'].capitalize()}: {result['generation']['content']}"
-            )
-            #print(result['generation']['content'].split('[')[1][:-1].split(', '))
-            #pred_cols.append(result['generation']['content'].split('[')[1].split(']')[0].split(', '))
-            print("\n==================================\n")
+            #for msg in dialog:
+            #    print(f"{msg['role'].capitalize()}: {msg['content']}\n")
+            #print(
+            #    f"> {result['generation']['role'].capitalize()}: {result['generation']['content']}"
+            #)
+            jslist = loads("{" + result['generation']['content'].replace('}','{').split('{')[1] + "}")
+            #print(jslist)
+            pred_cols.append(jslist["colnames"])
+            #print("\n==================================\n")
 
     correct = 0
     total = 0
-    #for real,pred in zip(real_cols, pred_cols):
-    #    for r,p in zip(real,pred):
-    #        total += 1
-    #        if r == p:
-    #            correct += 1
-    #print(f'Accuracy: {correct/total}')
+    for real,pred in zip(real_cols, pred_cols):
+        for r,p in zip(real,pred):
+            total += 1
+            if r == (p[0].lower() + p[1:]):
+                correct += 1
+    print(f'Accuracy: {correct/total}')
 
 
 if __name__ == "__main__":
     fire.Fire(main)
-

@@ -7,6 +7,7 @@ import fire
 import os
 from json import loads
 from tqdm import tqdm
+import numpy as np
 
 from llama import Llama, Dialog
 
@@ -73,7 +74,7 @@ Always answer as helpfully as possible, while being safe.  Your answers should n
         #"""}],
     #]
 
-    tabledir = "K3/"
+    tabledir = "K4" # Note that it doesn't end with '/'
     filenames = os.listdir(tabledir)
     starter = outputs["content"] + "Given the following relational table:\n"
     real_cols = []
@@ -81,13 +82,13 @@ Always answer as helpfully as possible, while being safe.  Your answers should n
     #i = 0
     for filename in tqdm(filenames[0:100]):
         dialogs: List[Dialog] = []
-        with open(tabledir + filename) as f:
+        with open(tabledir + '/' + filename) as f:
             linelist = f.readlines()
             if len(linelist) > 20:
                 f.close()
                 continue
             colnames = linelist[0][:-1].split(',')
-            real_cols.append(colnames)
+            real_cols += colnames
             #print(f'Column Names: {colnames}')
             input = starter
             #listcol = []
@@ -117,17 +118,21 @@ Always answer as helpfully as possible, while being safe.  Your answers should n
             #)
             jslist = loads("{" + result['generation']['content'].replace('}','{').split('{')[1] + "}")
             #print(jslist)
-            pred_cols.append(jslist["colnames"])
+            pred_cols += jslist["colnames"]
             #print("\n==================================\n")
 
-    correct = 0
+    with open(tabledir + '_true.npy', 'wb') as f:
+        np.save(f, np.array(real_cols, dtype='<U16'))
+    with open(tabledir + '_pred.npy', 'wb') as f:
+        np.save(f, np.array(pred_cols, dtype='<U16'))
+    """correct = 0
     total = 0
     for real,pred in zip(real_cols, pred_cols):
         for r,p in zip(real,pred):
             total += 1
             if r == (p[0].lower() + p[1:]):
                 correct += 1
-    print(f'Accuracy: {correct/total}')
+    print(f'Accuracy: {correct/total}')"""
 
 
 if __name__ == "__main__":

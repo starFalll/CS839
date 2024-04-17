@@ -81,16 +81,12 @@ def main(
         with open(fullpath) as f:
             real_cols += f.readline()[:-1].split(',')
         df = pd.read_csv(fullpath).astype(str)
-        i = 0
         for col in df.columns:
             input = starter
             #real_cols.append(col)
             input += ", ".join(df[col][0:20])
             input += '\nGuess the column name'
             dialogs.append([outputs, {"role":"user", "content":input}])
-            i += 1
-            if i > max_batch_size - 1:
-                break
         results = generator.chat_completion(
             dialogs,  # type: ignore
             max_gen_len=max_gen_len,

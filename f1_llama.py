@@ -9,7 +9,7 @@ from sklearn.metrics import classification_report
 def report_gen(y_pred, y_true, report_name=None, out_loc='report_llama'):
     # given predicted and true labels, 
     # generate the overall results and pertype analysis with misclassification
-    report = classification_report(y_true, y_pred, output_dict=True)
+    report = classification_report(y_true, y_pred, output_dict=True, zero_division=0)
 
     df_report = pd.DataFrame(columns=['type', 'precision', 'recall','f1-score', 'support'])
 

@@ -1,0 +1,106 @@
+type,precision,recall,f1-score,support,mis_from_top5,mis_to_top5
+-,0.0,0.0,0.0,0.0,"[('rank', 1)]",[]
+???,0.0,0.0,0.0,0.0,"[('weight', 16), ('age', 5), ('code', 1), ('description', 1), ('city', 1)]",[]
+address,1.0,0.4444444444444444,0.6153846153846154,9.0,[],"[('description', 2), ('location', 2), ('name', 1)]"
+affiliation,0.0,0.0,0.0,2.0,[],"[('description', 1), ('team', 1)]"
+age,0.8208955223880597,0.6707317073170732,0.738255033557047,82.0,"[('weight', 6), ('class', 3), ('location', 1), ('sex', 1), ('day', 1)]","[('type', 7), ('???', 5), ('year', 4), ('ageRange', 3), ('location', 2)]"
+ageRange,0.0,0.0,0.0,0.0,"[('age', 3)]",[]
+aircraft,0.0,0.0,0.0,0.0,"[('type', 1)]",[]
+album,0.5483870967741935,0.6296296296296297,0.5862068965517241,27.0,"[('name', 12), ('artist', 2)]","[('description', 7), ('artist', 1), ('result', 1), ('team', 1)]"
+artist,0.6097560975609756,0.8620689655172413,0.7142857142857143,29.0,"[('name', 10), ('symbol', 2), ('album', 1), ('director', 1), ('description', 1)]","[('album', 2), ('name', 1), ('description', 1)]"
+as,0.0,0.0,0.0,0.0,"[('code', 2), ('description', 1)]",[]
+c,0.0,0.0,0.0,0.0,"[('category', 1)]",[]
+category,0.4,0.25,0.3076923076923077,24.0,"[('location', 2), ('year', 2), ('genre', 1), ('class', 1), ('status', 1)]","[('team', 6), ('description', 3), ('result', 2), ('c', 1), ('year', 1)]"
+cc,0.0,0.0,0.0,0.0,"[('code', 3)]",[]
+city,0.6901408450704225,0.5632183908045977,0.620253164556962,87.0,"[('state', 17), ('location', 2), ('team', 1), ('country', 1), ('age', 1)]","[('location', 36), ('name', 1), ('???', 1)]"
+class,0.0,0.0,0.0,18.0,"[('description', 1)]","[('year', 4), ('type', 3), ('team', 3), ('location', 3), ('age', 3)]"
+club,1.0,0.03225806451612903,0.0625,31.0,[],"[('team', 28), ('location', 1), ('result', 1)]"
+code,0.17391304347826086,0.15384615384615385,0.16326530612244897,26.0,"[('symbol', 15), ('rank', 1), ('product', 1), ('state', 1), ('type', 1)]","[('year', 3), ('cc', 3), ('description', 3), ('patent', 2), ('team', 2)]"
+command,0.0,0.0,0.0,1.0,[],"[('key', 1)]"
+company,0.5897435897435898,0.8518518518518519,0.696969696969697,27.0,"[('name', 10), ('publisher', 2), ('manufacturer', 2), ('code', 2)]","[('team', 2), ('name', 2)]"
+component,0.0,0.0,0.0,2.0,[],"[('category', 1), ('component2', 1)]"
+component2,0.0,0.0,0.0,0.0,"[('component', 1)]",[]
+continent,0.0,0.0,0.0,0.0,"[('region', 1)]",[]
+country,0.6666666666666666,0.36363636363636365,0.47058823529411764,22.0,"[('rank', 3), ('category', 1)]","[('team', 9), ('location', 2), ('name', 1), ('year', 1), ('city', 1)]"
+county,0.0,0.0,0.0,4.0,[],"[('type', 2), ('location', 1), ('name', 1)]"
+currency,0.0,0.0,0.0,1.0,[],"[('symbol', 1)]"
+date,0.0,0.0,0.0,0.0,"[('day', 1), ('year', 1)]",[]
+day,1.0,0.5714285714285714,0.7272727272727273,7.0,[],"[('title', 1), ('age', 1), ('date', 1)]"
+dayton,0.0,0.0,0.0,0.0,"[('team', 1)]",[]
+depth,0.0,0.0,0.0,1.0,[],"[('location', 1)]"
+description,0.32710280373831774,0.4794520547945205,0.3888888888888889,73.0,"[('name', 17), ('location', 7), ('album', 7), ('status', 5), ('type', 5)]","[('type', 9), ('team', 5), ('year', 3), ('status', 2), ('name', 2)]"
+director,0.0,0.0,0.0,1.0,[],"[('artist', 1)]"
+directory,0.0,0.0,0.0,0.0,"[('type', 1)]",[]
+duration,0.0,0.0,0.0,5.0,"[('year', 1)]","[('type', 2), ('year', 1), ('status', 1), ('result', 1)]"
+elevation,1.0,0.3333333333333333,0.5,3.0,[],"[('year', 2)]"
+encodedTrafficClassId,0.0,0.0,0.0,0.0,"[('description', 1)]",[]
+expression,0.0,0.0,0.0,0.0,"[('type', 1)]",[]
+fileSize,0.0,0.0,0.0,0.0,"[('position', 2)]",[]
+filedAs,0.0,0.0,0.0,0.0,"[('code', 1)]",[]
+final,0.0,0.0,0.0,0.0,"[('status', 1)]",[]
+format,1.0,0.75,0.8571428571428571,4.0,[],"[('description', 1)]"
+fpay,0.0,0.0,0.0,0.0,"[('description', 2)]",[]
+gender,1.0,0.16666666666666666,0.2857142857142857,6.0,[],"[('status', 3), ('description', 1), ('rank', 1)]"
+genre,0.0,0.0,0.0,2.0,[],"[('category', 1), ('year', 1)]"
+id,0.0,0.0,0.0,0.0,"[('type', 1), ('name', 1)]",[]
+isbn,1.0,1.0,1.0,2.0,[],[]
+jockey,0.0,0.0,0.0,1.0,[],"[('name', 1)]"
+key,0.0,0.0,0.0,0.0,"[('command', 1)]",[]
+language,0.0,0.0,0.0,3.0,[],"[('artist', 1), ('type', 1), ('description', 1)]"
+location,0.2391304347826087,0.5,0.3235294117647059,44.0,"[('city', 36), ('weight', 6), ('name', 5), ('class', 3), ('type', 2)]","[('description', 7), ('team', 6), ('category', 2), ('city', 2), ('age', 1)]"
+loss,0.0,0.0,0.0,0.0,"[('result', 1), ('rank', 1)]",[]
+manufacturer,0.0,0.0,0.0,2.0,[],"[('company', 2)]"
+municipality,0.0,0.0,0.0,0.0,"[('status', 1)]",[]
+musicRequests,0.0,0.0,0.0,0.0,"[('name', 1)]",[]
+name,0.7064220183486238,0.4873417721518987,0.5767790262172284,158.0,"[('rank', 13), ('company', 2), ('description', 2), ('team', 2), ('artist', 1)]","[('description', 17), ('team', 14), ('album', 12), ('artist', 10), ('company', 10)]"
+new,0.0,0.0,0.0,0.0,"[('status', 1)]",[]
+notes,0.5,0.2222222222222222,0.3076923076923077,9.0,"[('status', 1), ('description', 1)]","[('description', 4), ('team', 2), ('system', 1)]"
+opera,0.0,0.0,0.0,0.0,"[('name', 1)]",[]
+operator,0.0,0.0,0.0,2.0,[],"[('team', 1), ('owner', 1)]"
+origin,0.0,0.0,0.0,1.0,[],"[('type', 1)]"
+owner,0.0,0.0,0.0,3.0,"[('operator', 1)]","[('description', 1), ('type', 1), ('somebody', 1)]"
+parentDirectory,0.0,0.0,0.0,0.0,"[('name', 1)]",[]
+patent,0.0,0.0,0.0,0.0,"[('code', 2)]",[]
+play,0.0,0.0,0.0,0.0,"[('result', 1)]",[]
+plays,0.0,0.0,0.0,2.0,[],"[('year', 1), ('result', 1)]"
+position,0.3333333333333333,0.041666666666666664,0.07407407407407407,24.0,"[('result', 1), ('rank', 1)]","[('result', 5), ('year', 5), ('description', 3), ('team', 2), ('fileSize', 2)]"
+product,0.0,0.0,0.0,1.0,"[('description', 1)]","[('code', 1)]"
+publisher,0.0,0.0,0.0,3.0,[],"[('company', 2), ('location', 1)]"
+range,0.0,0.0,0.0,1.0,[],"[('year', 1)]"
+rank,0.5,0.08928571428571429,0.15151515151515152,56.0,"[('team', 2), ('name', 1), ('gender', 1), ('age', 1)]","[('name', 13), ('result', 11), ('team', 8), ('country', 3), ('year', 3)]"
+reason,0.0,0.0,0.0,0.0,"[('description', 1)]",[]
+reg,0.0,0.0,0.0,0.0,"[('type', 1)]",[]
+region,0.0,0.0,0.0,4.0,[],"[('location', 2), ('team', 1), ('continent', 1)]"
+release,0.0,0.0,0.0,0.0,"[('description', 1)]",[]
+remi,0.0,0.0,0.0,0.0,"[('description', 1)]",[]
+resources,0.0,0.0,0.0,0.0,"[('description', 1)]",[]
+result,0.32653061224489793,0.64,0.43243243243243246,25.0,"[('rank', 11), ('position', 5), ('weight', 3), ('type', 2), ('category', 2)]","[('play', 1), ('year', 1), ('???', 1), ('team', 1), ('loss', 1)]"
+select,0.0,0.0,0.0,0.0,"[('type', 1)]",[]
+sex,0.0,0.0,0.0,8.0,[],"[('type', 6), ('age', 1), ('team', 1)]"
+somebody,0.0,0.0,0.0,0.0,"[('owner', 1)]",[]
+song,0.0,0.0,0.0,0.0,"[('name', 1)]",[]
+stadium,0.0,0.0,0.0,0.0,"[('location', 1)]",[]
+stat,0.0,0.0,0.0,0.0,"[('rank', 1)]",[]
+state,0.9272727272727272,0.6538461538461539,0.7669172932330827,78.0,"[('team', 2), ('teamName', 1), ('name', 1)]","[('city', 17), ('year', 3), ('team', 3), ('location', 2), ('code', 1)]"
+status,0.6363636363636364,0.4666666666666667,0.5384615384615384,45.0,"[('gender', 3), ('year', 2), ('description', 2), ('duration', 1), ('category', 1)]","[('type', 9), ('description', 5), ('team', 3), ('notes', 1), ('category', 1)]"
+studio,0.0,0.0,0.0,0.0,"[('position', 1), ('description', 1)]",[]
+symbol,0.5,0.05263157894736842,0.09523809523809523,19.0,"[('currency', 1)]","[('code', 15), ('artist', 2), ('team', 1)]"
+system,0.0,0.0,0.0,0.0,"[('notes', 1)]",[]
+task,0.0,0.0,0.0,0.0,"[('type', 1)]",[]
+team,0.15037593984962405,0.5555555555555556,0.23668639053254437,36.0,"[('club', 28), ('name', 14), ('country', 9), ('rank', 8), ('type', 8)]","[('year', 2), ('state', 2), ('location', 2), ('description', 2), ('rank', 2)]"
+teamName,0.0,0.0,0.0,2.0,[],"[('state', 1), ('description', 1)]"
+timestamp,0.0,0.0,0.0,0.0,"[('type', 1)]",[]
+title,0.0,0.0,0.0,0.0,"[('day', 1)]",[]
+to_do,0.0,0.0,0.0,0.0,"[('description', 1)]",[]
+topicClassification,0.0,0.0,0.0,0.0,"[('name', 1)]",[]
+type,0.16129032258064516,0.2222222222222222,0.18691588785046728,45.0,"[('description', 9), ('status', 9), ('age', 7), ('sex', 6), ('name', 4)]","[('team', 8), ('description', 5), ('year', 4), ('location', 2), ('update', 2)]"
+unit,0.0,0.0,0.0,0.0,"[('category', 1)]",[]
+update,0.0,0.0,0.0,0.0,"[('type', 2)]",[]
+value,0.0,0.0,0.0,0.0,"[('rank', 1)]",[]
+version,0.0,0.0,0.0,0.0,"[('position', 1)]",[]
+weather,0.0,0.0,0.0,0.0,"[('type', 1)]",[]
+weight,0.8461538461538461,0.3492063492063492,0.4943820224719101,63.0,"[('rank', 2), ('position', 2)]","[('???', 16), ('age', 6), ('location', 6), ('year', 5), ('result', 3)]"
+weightRange,0.0,0.0,0.0,0.0,"[('weight', 1)]",[]
+win,0.0,0.0,0.0,0.0,"[('result', 1)]",[]
+year,0.4457831325301205,0.74,0.556390977443609,50.0,"[('position', 5), ('weight', 5), ('age', 4), ('class', 4), ('type', 4)]","[('team', 3), ('status', 2), ('category', 2), ('result', 2), ('duration', 1)]"
+yearOfFeePayment,0.0,0.0,0.0,0.0,"[('code', 2)]",[]
